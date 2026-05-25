@@ -465,7 +465,12 @@
   }
 
   .hero-right {
-    min-height: 50vw;
+    min-height: 80vw;
+  }
+
+  .hero-icon {
+    width: min(300px, 68%);
+    max-height: none;
   }
 
   .rule-row {
@@ -485,7 +490,7 @@
   .feature-img {
     width: 100%;
     height: auto;
-    max-height: 440px;
+    max-height: none;
   }
 
   .cow-row {

@@ -53,7 +53,7 @@ function App() {
     <div className="feature-content">
       <span className="feature-num">01</span>
       <h2 className="feature-title">Your recipes, beautifully kept</h2>
-      <p className="feature-body">Collect recipes from anywhere — paste a URL, import from Mela or Crouton, or type your own. Everything lives in one calm, considered place, ready when you need it.</p>
+      <p className="feature-body">Collect recipes from anywhere; paste a URL, import from Mela or Crouton, or type your own. Everything lives in one calm, considered place, ready when you need it.</p>
     </div>
   </div>
   <div className="feature">
@@ -69,7 +69,7 @@ function App() {
     <div className="feature-content">
       <span className="feature-num">03</span>
       <h2 className="feature-title">A diary of every meal</h2>
-      <p className="feature-body">Every time you cook something, Larder remembers it. Scroll back through months of evenings — what you made, who you fed, what you changed. A quiet record of a life spent cooking.</p>
+      <p className="feature-body">Every time you cook something, Larder remembers it. Scroll back through months of evenings; what you made, who you fed, what you changed. A quiet record of a life spent cooking.</p>
     </div>
   </div>
   <div className="feature">
@@ -138,7 +138,7 @@ function App() {
           <a href="mailto:hello@cookwithlarder.com">hello@cookwithlarder.com</a>
           <a href="#">Privacy</a>
         </div>
-        <p className="footer-copy">2025 Larder. Made in London.</p>
+        <p className="footer-copy">2026 Larder. Made in London.</p>
       </footer>
 
     </div>
