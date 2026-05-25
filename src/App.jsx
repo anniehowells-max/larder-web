@@ -7,13 +7,22 @@ function App() {
   const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!email) return
-    setLoading(true)
-    await new Promise(r => setTimeout(r, 800))
+  e.preventDefault()
+  if (!email) return
+  setLoading(true)
+
+  try {
+    await fetch(`https://cookwithlarder.us8.list-manage.com/subscribe/post?u=a9e1d1e4b32d2097cde04e978&id=47ebcbd712&f_id=00d005e0f0&EMAIL=${encodeURIComponent(email)}`, {
+      method: 'POST',
+      mode: 'no-cors',
+    })
     setSubmitted(true)
+  } catch (err) {
+    console.error(err)
+  } finally {
     setLoading(false)
   }
+}
 
   return (
     <div className="page">
