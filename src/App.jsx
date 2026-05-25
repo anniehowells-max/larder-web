@@ -38,7 +38,8 @@ function App() {
           <a href="#early-access" className="hero-btn">Join the waitlist</a>
         </div>
         <div className="hero-right">
-          <img src="/Larder-app-icon.png" alt="Larder app icon" className="hero-icon" />
+          <img src="/
+        Hero.png" alt="Larder app icon" className="hero-icon" />
           <img src="/pot.png" alt="" className="hero-pot" aria-hidden="true" />
         </div>
       </section>
