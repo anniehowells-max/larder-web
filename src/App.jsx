@@ -44,31 +44,41 @@ function App() {
       </section>
 
       <div className="rule-row">
-        <span className="rule-dash" />
         <img src="/Carrot.png" alt="" className="rule-illustration" aria-hidden="true" />
-        <span className="rule-dash" />
       </div>
 
       <section className="features">
         <div className="feature">
-          <span className="feature-num">01</span>
-          <h2 className="feature-title">Collect from anywhere</h2>
-          <p className="feature-body">Import from Mela, Crouton, and other apps. Paste a URL or a block of text and Larder parses it intelligently. Your recipes, finally in one place.</p>
+          <img src="/Hero.png" alt="" className="feature-img" aria-hidden="true" />
+          <div className="feature-content">
+            <span className="feature-num">01</span>
+            <h2 className="feature-title">Collect from anywhere</h2>
+            <p className="feature-body">Import from Mela, Crouton, and other apps. Paste a URL or a block of text and Larder parses it intelligently. Your recipes, finally in one place.</p>
+          </div>
         </div>
         <div className="feature">
-          <span className="feature-num">02</span>
-          <h2 className="feature-title">Cook with clarity</h2>
-          <p className="feature-body">A cook mode built for the kitchen. Large text, step-by-step flow, built-in timers. No ads, no clutter, nothing between you and the recipe.</p>
+          <img src="/journal-stats.png" alt="" className="feature-img" aria-hidden="true" />
+          <div className="feature-content">
+            <span className="feature-num">02</span>
+            <h2 className="feature-title">Cook with clarity</h2>
+            <p className="feature-body">A cook mode built for the kitchen. Large text, step-by-step flow, built-in timers. No ads, no clutter, nothing between you and the recipe.</p>
+          </div>
         </div>
         <div className="feature">
-          <span className="feature-num">03</span>
-          <h2 className="feature-title">Keep a cooking log</h2>
-          <p className="feature-body">Note what you changed, how it went, when you last made it. A quiet record of a life spent cooking.</p>
+          <img src="/journal-diary.png" alt="" className="feature-img" aria-hidden="true" />
+          <div className="feature-content">
+            <span className="feature-num">03</span>
+            <h2 className="feature-title">Keep a cooking log</h2>
+            <p className="feature-body">Note what you changed, how it went, when you last made it. A quiet record of a life spent cooking.</p>
+          </div>
         </div>
         <div className="feature">
-          <span className="feature-num">04</span>
-          <h2 className="feature-title">Share what you love</h2>
-          <p className="feature-body">Send recipes to friends with a tap. No account needed to receive them. Cooking is more fun when it is shared.</p>
+          <img src="/groceries.png" alt="" className="feature-img" aria-hidden="true" />
+          <div className="feature-content">
+            <span className="feature-num">04</span>
+            <h2 className="feature-title">Share what you love</h2>
+            <p className="feature-body">Send recipes to friends with a tap. No account needed to receive them. Cooking is more fun when it is shared.</p>
+          </div>
         </div>
       </section>
 
@@ -125,7 +135,7 @@ function App() {
       <footer className="footer">
         <span className="footer-logo">Larder</span>
         <div className="footer-links">
-          <a href="mailto:hello@getlarder.app">hello@getlarder.app</a>
+          <a href="mailto:hello@cookwithlarder.com">hello@cookwithlarder.com</a>
           <a href="#">Privacy</a>
         </div>
         <p className="footer-copy">2025 Larder. Made in London.</p>
