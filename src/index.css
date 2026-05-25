@@ -9,7 +9,8 @@
   --white: #faf9f6;
   --grey: #888580;
   --border: #d8d5cf;
-  --font-display: 'Cormorant', Georgia, serif;
+  --font-display: 'Lora', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
   --font-mono: 'DM Mono', monospace;
 }
 

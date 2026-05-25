@@ -82,7 +82,7 @@
 }
 
 .hero-body {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.15rem;
   font-weight: 300;
   line-height: 1.7;
@@ -206,7 +206,7 @@
 }
 
 .feature-body {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.05rem;
   font-weight: 300;
   line-height: 1.75;
@@ -277,7 +277,7 @@
 }
 
 .about-body {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.1rem;
   font-weight: 300;
   line-height: 1.85;
@@ -318,7 +318,7 @@
 }
 
 .waitlist-body {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.05rem;
   font-weight: 300;
   line-height: 1.7;
