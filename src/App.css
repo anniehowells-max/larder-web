@@ -122,6 +122,8 @@
 .hero-icon {
   width: min(340px, 52%);
   height: auto;
+  max-height: 440px;
+  object-fit: contain;
   position: relative;
   z-index: 2;
   border-radius: 28%;
@@ -476,10 +478,14 @@
     gap: 2rem;
   }
 
+  .feature-content {
+    order: -1;
+  }
+
   .feature-img {
     width: 100%;
     height: auto;
-    max-height: 600px;
+    max-height: 440px;
   }
 
   .cow-row {
