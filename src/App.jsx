@@ -78,7 +78,7 @@ function App() {
 
       <section className="hero">
         <div className="hero-left">
-          <p className="hero-eyebrow">Coming soon to iOS</p>
+          <p className="hero-eyebrow">Launching on iOS soon</p>
           <h1 className="hero-title">
             A recipe app for<br/>
             <em>people who love</em><br/>
@@ -162,7 +162,7 @@ function App() {
         <div className="waitlist-inner">
           <h2 className="waitlist-title">Be first to the table.</h2>
           <p className="waitlist-body">
-            Larder is launching soon. Join the waitlist for early access and the occasional note from the kitchen.
+            Larder is in final review with Apple and launching within weeks. Join the waitlist for early access and the occasional note from the kitchen.
           </p>
           {submitted ? (
             <p className="waitlist-success">You are on the list. Talk soon.</p>
