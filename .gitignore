@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Never commit SSH keys or secrets
+ssh-keygen*
+id_*
+id_rsa*
+id_ed25519*
+*.pem
+*.key
