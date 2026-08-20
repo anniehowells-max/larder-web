@@ -5,7 +5,9 @@ function PrivacyPolicy() {
   return (
     <div className="page">
       <nav className="nav">
-        <a href="/" className="nav-logo">Larder</a>
+        <a href="/" className="nav-logo-link">
+          <img src="/larder-logo.png" alt="Larder" className="nav-logo" />
+        </a>
       </nav>
       <div style={{ maxWidth: '720px', margin: '0 auto', padding: '60px 24px' }}>
         <h1 style={{ fontFamily: 'Georgia, serif', marginBottom: '8px' }}>Privacy Policy</h1>
@@ -72,7 +74,7 @@ function App() {
     <div className="page">
 
       <nav className="nav">
-        <span className="nav-logo">Larder</span>
+        <img src="/larder-logo.png" alt="Larder" className="nav-logo" />
         <a href="#early-access" className="nav-cta">Get early access</a>
       </nav>
 
