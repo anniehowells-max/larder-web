@@ -96,6 +96,7 @@ function App() {
       </nav>
 
       <section className="hero">
+        <img src="/Hero.png" alt="" className="hero-bg" aria-hidden="true" />
         <div className="hero-left">
           <h1 className="hero-title">
             More than a recipe app.
@@ -108,14 +109,7 @@ function App() {
           </p>
           <a href={appStoreUrl} className="hero-btn">try for free</a>
         </div>
-        <div className="hero-right">
-          <img src="/Hero.png" alt="" className="hero-collage" aria-hidden="true" />
-        </div>
       </section>
-
-      <div className="rule-row">
-        <img src="/Carrot.png" alt="" className="rule-illustration" aria-hidden="true" />
-      </div>
 
       <section className="features">
         <div className="feature">
