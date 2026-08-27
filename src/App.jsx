@@ -109,7 +109,7 @@ function App() {
           <a href={appStoreUrl} className="hero-btn">try for free</a>
         </div>
         <div className="hero-right">
-          <img src="/hero.png" alt="" className="hero-collage" aria-hidden="true" />
+          <img src="/Hero.png" alt="" className="hero-collage" aria-hidden="true" />
         </div>
       </section>
 
