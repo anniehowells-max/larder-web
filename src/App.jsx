@@ -152,29 +152,6 @@ function App() {
         </div>
       </section>
 
-      <div className="cow-row">
-        <img src="/Larder-cow.png" alt="" className="cow-illustration" aria-hidden="true" />
-        <blockquote className="cow-quote">
-          Good food is very often, even most often, simple food.
-          Anthony Bourdain
-        </blockquote>
-      </div>
-
-      <section className="about" id="about">
-        <div className="about-inner">
-          <h2 className="about-title">Made with care,<br/><em>by someone who cooks.</em></h2>
-          <p className="about-body">
-            Larder is an independent iOS app made in London. It started as a personal project —
-            a way to keep the recipes I love without losing them to browser tabs and screenshots.
-            It grew into something worth sharing.
-          </p>
-          <p className="about-body">
-            Alongside the app, Larder has a food journal: short writing about restaurants visited,
-            things cooked at home, meals that stuck. Somewhere between a notebook and a dispatch.
-          </p>
-        </div>
-      </section>
-
       <section className="reviews" id="reviews">
         <div className="rule-row rule-row--dark">
           <img src="/Carrot.png" alt="" className="rule-illustration" aria-hidden="true" />
