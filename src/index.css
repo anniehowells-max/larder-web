@@ -6,11 +6,11 @@
 
 :root {
   --black: #0f0d0b;
-  --white: #faf9f6;
+  --white: #ffffff;
   --grey: #888580;
   --border: #d8d5cf;
-  --font-display: 'Lora', Georgia, serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Lora', Georgia, serif;
   --font-mono: 'DM Mono', monospace;
 }
 

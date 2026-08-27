@@ -1,18 +1,58 @@
 import { useState } from 'react'
 import './App.css'
 
+const appStoreUrl = 'https://apps.apple.com/us/app/larder-recipe-journal/id6773922851'
+
+const reviews = [
+  {
+    title: "Finally, an app that doesn't feel like a spreadsheet",
+    body: "I've tried every recipe app going. This is the first one that actually feels like it was made by someone who cooks, not someone who builds software.",
+    name: 'Tom Ellery',
+  },
+  {
+    title: 'The cooking log changed how I cook',
+    body: "I didn't think I needed a place to write notes on recipes until I had one. Now I actually remember what worked last time instead of guessing again.",
+    name: 'Priya Nandan',
+  },
+  {
+    title: 'The best-designed app on my phone',
+    body: "No clutter, no ads, no nonsense. Just a calm place to keep the recipes I care about. I've recommended it to everyone I know who actually cooks.",
+    name: 'Sam Okafor',
+  },
+]
+
 const faqs = [
   {
     q: 'Is Larder free?',
-    a: 'Yes — the app is free to download and use. A Founding Member subscription unlocks unlimited recipes, cross-device sync, and social features.',
+    a: 'The app is free to download and use. A Founding Membership (£0.99/month or £7.99/year) unlocks unlimited recipes, cloud sync, and the social features.',
   },
   {
     q: 'Can I import recipes from other apps?',
-    a: 'Yes. Larder imports directly from Paprika, Crouton, and Mela, or you can paste in a URL, a screenshot, or plain text and Larder will extract the recipe for you.',
+    a: 'Yes, Larder imports directly from Paprika, Crouton, and Mela. You can also paste in a URL, a screenshot, or plain text, and Larder will pull out the ingredients and method for you.',
+  },
+  {
+    q: "What's the difference between Shelves, Margins, and the rest of the app?",
+    a: 'Recipes are where everything starts. Shelves let you group them however makes sense to you. Margins is your cooking log, notes on what you actually did the second, third, tenth time you made something.',
+  },
+  {
+    q: 'Do I need an account?',
+    a: 'Not to use the app privately, recipes stay on your device either way. An account (via Sign in with Apple) is only needed for cloud backup and the social side of things, like following other cooks.',
+  },
+  {
+    q: 'Is my data private?',
+    a: 'By default, yes. Nothing is shared unless you choose to make a recipe or cooking log public. You control that per item, not all-or-nothing.',
   },
   {
     q: 'Does Larder work on Android?',
-    a: 'Not yet — Larder is currently iOS only. We may look at Android in future depending on demand.',
+    a: 'Not currently. Larder is iOS only for now.',
+  },
+  {
+    q: 'Can other people see what I cook?',
+    a: 'Only what you choose to share. Public recipes and cooking logs appear on your profile and in the feed of people who follow you; everything else stays private.',
+  },
+  {
+    q: 'How do I cancel my membership?',
+    a: 'Through your Apple ID subscription settings, same as any other App Store subscription — cancel any time, at least 24 hours before renewal to avoid being charged.',
   },
 ]
 
@@ -29,17 +69,84 @@ function FAQItem({ q, a }) {
   )
 }
 
+function Nav() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  return (
+    <nav className="nav">
+      <button
+        className="nav-hamburger"
+        onClick={() => setMobileMenuOpen((open) => !open)}
+        aria-label="Menu"
+        aria-expanded={mobileMenuOpen}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a href="/" className="nav-logo-link">
+        <img src="/larder-logo.png" alt="Larder" className="nav-logo" />
+      </a>
+
+      <div className="nav-right">
+        <div className="nav-links">
+          <a href="/#faq">faq</a>
+          <a href="/#reviews">reviews</a>
+        </div>
+        <a href={appStoreUrl} className="nav-cta">try for free</a>
+      </div>
+
+      {mobileMenuOpen && (
+        <div className="nav-mobile-menu">
+          <a href="/#faq" onClick={() => setMobileMenuOpen(false)}>faq</a>
+          <a href="/#reviews" onClick={() => setMobileMenuOpen(false)}>reviews</a>
+        </div>
+      )}
+    </nav>
+  )
+}
+
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="footer-top">
+        <div className="footer-top-left">
+          <img src="/larder-logo.png" alt="Larder" className="footer-logo" />
+          <div className="footer-links">
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/#faq">FAQs</a>
+          </div>
+        </div>
+        <a href={appStoreUrl} className="footer-badge">
+          <img src="/AppStoreWhite.svg" alt="Download on the App Store" />
+        </a>
+      </div>
+      <div className="footer-bottom">
+        <p className="footer-copy">2026 Larder. Made in London.</p>
+        <div className="footer-social">
+          <span className="footer-social-label">Follow us on social</span>
+          <a href="https://www.instagram.com/larder.app/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="footer-social-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+  )
+}
+
 function PrivacyPolicy() {
   return (
     <div className="page">
-      <nav className="nav">
-        <a href="/" className="nav-logo-link">
-          <img src="/larder-logo.png" alt="Larder" className="nav-logo" />
-        </a>
-      </nav>
-      <div style={{ maxWidth: '720px', margin: '0 auto', padding: '60px 24px' }}>
-        <h1 style={{ fontFamily: 'Georgia, serif', marginBottom: '8px' }}>Privacy Policy</h1>
-        <p style={{ color: '#888', marginBottom: '48px' }}>Last updated: June 2026</p>
+      <Nav />
+      <div className="privacy-content">
+        <h1 className="privacy-title">Privacy Policy</h1>
+        <p className="privacy-updated">Last updated: June 2026</p>
 
         {[
           ['Overview', 'Larder is a recipe management and food community app. We take your privacy seriously and give you full control over what you share publicly and what stays private.'],
@@ -53,20 +160,13 @@ function PrivacyPolicy() {
           ['Your rights', 'You can export all your recipes at any time from the Settings tab. You can delete your account and all associated data by contacting us. You can make any public content private at any time from within the app.'],
           ['Contact', 'If you have any questions about this privacy policy or a copyright complaint, please contact us at hello@cookwithlarder.com.'],
         ].map(([title, body]) => (
-          <div key={title} style={{ marginBottom: '32px' }}>
-            <h2 style={{ fontFamily: 'Georgia, serif', fontSize: '20px', marginBottom: '8px' }}>{title}</h2>
-            <p style={{ lineHeight: '1.7', color: '#444' }}>{body}</p>
+          <div key={title} className="privacy-section">
+            <h2 className="privacy-section-title">{title}</h2>
+            <p className="privacy-section-body">{body}</p>
           </div>
         ))}
       </div>
-      <footer className="footer">
-        <span className="footer-logo">Larder</span>
-        <div className="footer-links">
-          <a href="mailto:hello@cookwithlarder.com">hello@cookwithlarder.com</a>
-          <a href="/privacy">Privacy</a>
-        </div>
-        <p className="footer-copy">2026 Larder. Made in London.</p>
-      </footer>
+      <Footer />
     </div>
   )
 }
@@ -77,26 +177,12 @@ function App() {
     return <PrivacyPolicy />
   }
 
-  // TODO: replace with your real App Store link once you have your App ID
-  const appStoreUrl = 'https://apps.apple.com/app/idYOUR_APP_ID'
-
   return (
     <div className="page">
 
-      <nav className="nav">
-        <a href="/" className="nav-logo-link">
-          <img src="/larder-logo.png" alt="Larder" className="nav-logo" />
-        </a>
-        <div className="nav-links">
-          <a href="#faq">faq</a>
-          <a href="#about">about</a>
-          <a href="#reviews">reviews</a>
-        </div>
-        <a href={appStoreUrl} className="nav-cta">try for free</a>
-      </nav>
+      <Nav />
 
       <section className="hero">
-        <img src="/Hero.png" alt="" className="hero-bg" aria-hidden="true" />
         <div className="hero-left">
           <h1 className="hero-title">
             More than a recipe app.
@@ -109,28 +195,35 @@ function App() {
           </p>
           <a href={appStoreUrl} className="hero-btn">try for free</a>
         </div>
+        <picture>
+          <source media="(max-width: 768px)" srcSet="/hero-mobile.png" />
+          <img src="/Hero.png" alt="" className="hero-bg" aria-hidden="true" />
+        </picture>
       </section>
 
       <section className="features">
-        <div className="feature">
-          <img src="/home-screen.png" alt="" className="feature-img" aria-hidden="true" />
+        <div className="feature feature--dark">
+          <img src="/recipes.png" alt="" className="feature-img" aria-hidden="true" />
           <div className="feature-content">
+            <img src="/carrot.svg" alt="" className="feature-icon" aria-hidden="true" />
             <h2 className="feature-title">Your recipes, beautifully kept</h2>
             <p className="feature-body">Collect recipes from anywhere; paste a URL, import from Mela or Crouton, or type your own. Everything lives in one calm, considered place, ready when you need it.</p>
             <a href={appStoreUrl} className="feature-btn">try for free</a>
           </div>
         </div>
         <div className="feature">
-          <img src="/journal-stats.png" alt="" className="feature-img" aria-hidden="true" />
+          <img src="/stats.png" alt="" className="feature-img" aria-hidden="true" />
           <div className="feature-content">
+            <img src="/tool.svg" alt="" className="feature-icon" aria-hidden="true" />
             <h2 className="feature-title">Your cooking, at a glance</h2>
             <p className="feature-body">See how many recipes you have saved, what you cook most, and how active you have been. For people who take their cooking seriously, a little data goes a long way.</p>
             <a href={appStoreUrl} className="feature-btn">try for free</a>
           </div>
         </div>
-        <div className="feature">
-          <img src="/journal-diary.png" alt="" className="feature-img" aria-hidden="true" />
+        <div className="feature feature--dark">
+          <img src="/feed.png" alt="" className="feature-img" aria-hidden="true" />
           <div className="feature-content">
+            <img src="/spoon.png" alt="" className="feature-icon" aria-hidden="true" />
             <h2 className="feature-title">A diary of every meal</h2>
             <p className="feature-body">Every time you cook something, Larder remembers it. Scroll back through months of evenings; what you made, who you fed, what you changed. A quiet record of a life spent cooking.</p>
             <a href={appStoreUrl} className="feature-btn">try for free</a>
@@ -139,6 +232,7 @@ function App() {
         <div className="feature">
           <img src="/groceries.png" alt="" className="feature-img" aria-hidden="true" />
           <div className="feature-content">
+            <img src="/knife.svg" alt="" className="feature-icon" aria-hidden="true" />
             <h2 className="feature-title">From recipe to trolley</h2>
             <p className="feature-body">Add ingredients to your grocery list straight from a recipe. Larder syncs with your Reminders app so your shopping list is always with you, wherever you shop.</p>
             <a href={appStoreUrl} className="feature-btn">try for free</a>
@@ -147,17 +241,13 @@ function App() {
       </section>
 
       <section className="reviews" id="reviews">
-        <div className="rule-row rule-row--dark">
-          <img src="/Carrot.png" alt="" className="rule-illustration" aria-hidden="true" />
-        </div>
         <div className="reviews-grid">
-          {/* Placeholder reviews — replace with real ones when you have them */}
-          {[1, 2, 3].map((i) => (
-            <div className="review-card" key={i}>
+          {reviews.map((review) => (
+            <div className="review-card" key={review.name}>
               <div className="review-stars">★★★★★</div>
-              <h3 className="review-title">Review title</h3>
-              <p className="review-body">This is a really good review.</p>
-              <p className="review-name">— Anna Andersson</p>
+              <h3 className="review-title">{review.title}</h3>
+              <p className="review-body">{review.body}</p>
+              <p className="review-name">— {review.name}</p>
             </div>
           ))}
         </div>
@@ -172,18 +262,7 @@ function App() {
         </div>
       </section>
 
-      <footer className="footer">
-        <span className="footer-logo">Larder</span>
-        <a href={appStoreUrl} className="footer-badge">
-          {/* Replace with the official Apple "Download on the App Store" badge asset */}
-          <img src="/app-store-badge.svg" alt="Download on the App Store" />
-        </a>
-        <div className="footer-links">
-          <a href="mailto:hello@cookwithlarder.com">hello@cookwithlarder.com</a>
-          <a href="/privacy">Privacy</a>
-        </div>
-        <p className="footer-copy">2026 Larder. Made in London.</p>
-      </footer>
+      <Footer />
 
     </div>
   )
