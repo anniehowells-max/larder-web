@@ -1,6 +1,34 @@
 import { useState } from 'react'
 import './App.css'
 
+const faqs = [
+  {
+    q: 'Is Larder free?',
+    a: 'Yes — the app is free to download and use. A Founding Member subscription unlocks unlimited recipes, cross-device sync, and social features.',
+  },
+  {
+    q: 'Can I import recipes from other apps?',
+    a: 'Yes. Larder imports directly from Paprika, Crouton, and Mela, or you can paste in a URL, a screenshot, or plain text and Larder will extract the recipe for you.',
+  },
+  {
+    q: 'Does Larder work on Android?',
+    a: 'Not yet — Larder is currently iOS only. We may look at Android in future depending on demand.',
+  },
+]
+
+function FAQItem({ q, a }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <div className="faq-item">
+      <button className="faq-question" onClick={() => setOpen(!open)} aria-expanded={open}>
+        <span>{q}</span>
+        <span className="faq-icon">{open ? '−' : '+'}</span>
+      </button>
+      {open && <p className="faq-answer">{a}</p>}
+    </div>
+  )
+}
+
 function PrivacyPolicy() {
   return (
     <div className="page">
@@ -44,57 +72,44 @@ function PrivacyPolicy() {
 }
 
 function App() {
-  const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
-
   // Show privacy page if URL is /privacy
   if (window.location.pathname === '/privacy') {
     return <PrivacyPolicy />
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!email) return
-    setLoading(true)
-    try {
-      await fetch(`https://cookwithlarder.us8.list-manage.com/subscribe/post?u=a9e1d1e4b32d2097cde04e978&id=47ebcbd712&f_id=00d005e0f0&EMAIL=${encodeURIComponent(email)}`, {
-        method: 'POST',
-        mode: 'no-cors',
-      })
-      setSubmitted(true)
-    } catch (err) {
-      console.error(err)
-    } finally {
-      setLoading(false)
-    }
-  }
+  // TODO: replace with your real App Store link once you have your App ID
+  const appStoreUrl = 'https://apps.apple.com/app/idYOUR_APP_ID'
 
   return (
     <div className="page">
 
       <nav className="nav">
-        <img src="/larder-logo.png" alt="Larder" className="nav-logo" />
-        <a href="#early-access" className="nav-cta">Get early access</a>
+        <a href="/" className="nav-logo-link">
+          <img src="/larder-logo.png" alt="Larder" className="nav-logo" />
+        </a>
+        <div className="nav-links">
+          <a href="#faq">faq</a>
+          <a href="#about">about</a>
+          <a href="#reviews">reviews</a>
+        </div>
+        <a href={appStoreUrl} className="nav-cta">try for free</a>
       </nav>
 
       <section className="hero">
         <div className="hero-left">
-          <p className="hero-eyebrow">Launching on iOS soon</p>
           <h1 className="hero-title">
-            A recipe app for<br/>
-            <em>people who love</em><br/>
-            to cook.
+            More than a recipe app.
+            <br />
+            A cooking community.
           </h1>
           <p className="hero-body">
             Collect recipes from anywhere. Cook with a calm, beautiful interface.
             Keep a log of what you have made, and share the meals that matter.
           </p>
-          <a href="#early-access" className="hero-btn">Join the waitlist</a>
+          <a href={appStoreUrl} className="hero-btn">try for free</a>
         </div>
         <div className="hero-right">
-          <img src="/home-screen.png" alt="Larder app home screen" className="hero-icon" />
-          <img src="/pot.png" alt="" className="hero-pot" aria-hidden="true" />
+          <img src="/hero.png" alt="" className="hero-collage" aria-hidden="true" />
         </div>
       </section>
 
@@ -104,35 +119,35 @@ function App() {
 
       <section className="features">
         <div className="feature">
-          <img src="/Hero.png" alt="" className="feature-img" aria-hidden="true" />
+          <img src="/home-screen.png" alt="" className="feature-img" aria-hidden="true" />
           <div className="feature-content">
-            <span className="feature-num">01</span>
             <h2 className="feature-title">Your recipes, beautifully kept</h2>
             <p className="feature-body">Collect recipes from anywhere; paste a URL, import from Mela or Crouton, or type your own. Everything lives in one calm, considered place, ready when you need it.</p>
+            <a href={appStoreUrl} className="feature-btn">try for free</a>
           </div>
         </div>
         <div className="feature">
           <img src="/journal-stats.png" alt="" className="feature-img" aria-hidden="true" />
           <div className="feature-content">
-            <span className="feature-num">02</span>
             <h2 className="feature-title">Your cooking, at a glance</h2>
             <p className="feature-body">See how many recipes you have saved, what you cook most, and how active you have been. For people who take their cooking seriously, a little data goes a long way.</p>
+            <a href={appStoreUrl} className="feature-btn">try for free</a>
           </div>
         </div>
         <div className="feature">
           <img src="/journal-diary.png" alt="" className="feature-img" aria-hidden="true" />
           <div className="feature-content">
-            <span className="feature-num">03</span>
             <h2 className="feature-title">A diary of every meal</h2>
             <p className="feature-body">Every time you cook something, Larder remembers it. Scroll back through months of evenings; what you made, who you fed, what you changed. A quiet record of a life spent cooking.</p>
+            <a href={appStoreUrl} className="feature-btn">try for free</a>
           </div>
         </div>
         <div className="feature">
           <img src="/groceries.png" alt="" className="feature-img" aria-hidden="true" />
           <div className="feature-content">
-            <span className="feature-num">04</span>
             <h2 className="feature-title">From recipe to trolley</h2>
             <p className="feature-body">Add ingredients to your grocery list straight from a recipe. Larder syncs with your Reminders app so your shopping list is always with you, wherever you shop.</p>
+            <a href={appStoreUrl} className="feature-btn">try for free</a>
           </div>
         </div>
       </section>
@@ -141,11 +156,11 @@ function App() {
         <img src="/Larder-cow.png" alt="" className="cow-illustration" aria-hidden="true" />
         <blockquote className="cow-quote">
           Good food is very often, even most often, simple food.
-          <cite>Anthony Bourdain</cite>
+          Anthony Bourdain
         </blockquote>
       </div>
 
-      <section className="about">
+      <section className="about" id="about">
         <div className="about-inner">
           <h2 className="about-title">Made with care,<br/><em>by someone who cooks.</em></h2>
           <p className="about-body">
@@ -160,35 +175,38 @@ function App() {
         </div>
       </section>
 
-      <section className="waitlist" id="early-access">
-        <div className="waitlist-inner">
-          <h2 className="waitlist-title">Be first to the table.</h2>
-          <p className="waitlist-body">
-            Larder is in final review with Apple and launching within weeks. Join the waitlist for early access and the occasional note from the kitchen.
-          </p>
-          {submitted ? (
-            <p className="waitlist-success">You are on the list. Talk soon.</p>
-          ) : (
-            <form className="waitlist-form" onSubmit={handleSubmit}>
-              <input
-                type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                placeholder="your@email.com"
-                className="waitlist-input"
-                required
-              />
-              <button type="submit" className="waitlist-btn" disabled={loading}>
-                {loading ? '...' : 'Join waitlist'}
-              </button>
-            </form>
-          )}
-          <p className="waitlist-note">No spam. Unsubscribe whenever.</p>
+      <section className="reviews" id="reviews">
+        <div className="rule-row rule-row--dark">
+          <img src="/Carrot.png" alt="" className="rule-illustration" aria-hidden="true" />
+        </div>
+        <div className="reviews-grid">
+          {/* Placeholder reviews — replace with real ones when you have them */}
+          {[1, 2, 3].map((i) => (
+            <div className="review-card" key={i}>
+              <div className="review-stars">★★★★★</div>
+              <h3 className="review-title">Review title</h3>
+              <p className="review-body">This is a really good review.</p>
+              <p className="review-name">— Anna Andersson</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="faq" id="faq">
+        <h2 className="faq-heading">FAQs</h2>
+        <div className="faq-list">
+          {faqs.map((item) => (
+            <FAQItem key={item.q} q={item.q} a={item.a} />
+          ))}
         </div>
       </section>
 
       <footer className="footer">
         <span className="footer-logo">Larder</span>
+        <a href={appStoreUrl} className="footer-badge">
+          {/* Replace with the official Apple "Download on the App Store" badge asset */}
+          <img src="/app-store-badge.svg" alt="Download on the App Store" />
+        </a>
         <div className="footer-links">
           <a href="mailto:hello@cookwithlarder.com">hello@cookwithlarder.com</a>
           <a href="/privacy">Privacy</a>
