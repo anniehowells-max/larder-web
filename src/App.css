@@ -600,7 +600,19 @@
   }
 
   .hero {
-    min-height: auto;
+    height: calc(100vh - 80px);
+    height: calc(100dvh - 80px);
+  }
+
+  .hero picture {
+    height: 100%;
+  }
+
+  .hero-bg {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center top;
   }
 
   .hero-left {
@@ -632,6 +644,8 @@
 
   .feature-content {
     order: -1;
+    align-items: center;
+    text-align: center;
   }
 
   .feature-img {
